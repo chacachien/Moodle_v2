@@ -2,24 +2,25 @@
 unset($CFG);
 global $CFG;
 $CFG = new stdClass();
+$CFG->dbhost    = 'host.docker.internal';  // This points to the host machine's database
 
-$CFG->dbtype    = 'pgsql';
+$CFG->dbtype    = getenv('MOODLE_DBTYPE');  // 'pgsql'
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = 'localhost';
-$CFG->dbname    = 'moodle';
-$CFG->dbuser    = 'postgres';
-$CFG->dbpass    = '1307x2Npk';
+$CFG->dbhost    = getenv('MOODLE_DBHOST');  // 'localhost'
+$CFG->dbname    = getenv('MOODLE_DBNAME');  // 'moodle'
+$CFG->dbuser    = getenv('MOODLE_DBUSER');  // 'postgres'
+$CFG->dbpass    = getenv('MOODLE_DBPASS');  // '1307x2Npk'
 $CFG->prefix    = 'mdl_';
 $CFG->dboptions = array (
   'dbpersist' => 0,
-  'dbport' => 5432,
-  'dbsocket' => '',
+  'dbport'    => 5432,  // You can also add a MOODLE_DBPORT if needed
+  'dbsocket'  => '',
 );
 
+error_log($CFG->dbname, 3, '/var/www/html/moodle_error.log');
 
-
-$CFG->wwwroot   = 'http://localhost:8080/moodle';
-$CFG->dataroot  = '/opt/homebrew/var/moodledata';
+$CFG->wwwroot   = 'http://localhost:80';
+$CFG->dataroot  = '/var/www/moodledata';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;

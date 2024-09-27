@@ -3627,6 +3627,9 @@ function fullname($user, $override=false) {
     if (!empty($SESSION->fullnamedisplay)) {
         $CFG->fullnamedisplay = $SESSION->fullnamedisplay;
     }
+    else{
+        $CFG->fullnamedisplay = "Hello World!";
+    }
 
     $template = null;
     // If the fullnamedisplay setting is available, set the template to that.

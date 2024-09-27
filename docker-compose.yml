@@ -1,0 +1,20 @@
+services:
+  moodle:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    environment:
+      MOODLE_DBTYPE: pgsql
+      MOODLE_DBHOST: moodle.cd2wy4iagdv9.ap-southeast-1.rds.amazonaws.com
+      MOODLE_DBUSER: postgres
+      MOODLE_DBPASS: 1307x2Npk
+      MOODLE_DBNAME: moodle
+      MOODLE_ADMINUSER: admin
+      MOODLE_ADMINPASS: 
+    volumes:
+      - moodledata:/var/moodledata
+
+volumes:
+  moodledata:

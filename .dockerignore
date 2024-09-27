@@ -1,0 +1,33 @@
+
+# Ignore environment configuration files (if not needed)
+.env
+.env.*
+
+
+# Ignore version control directories
+.git/
+.gitignore
+.svn/
+
+# Ignore node_modules (if you have JavaScript dependencies)
+node_modules/
+
+# Ignore IDE and editor configurations
+.idea/
+.vscode/
+*.swp
+
+# Ignore Docker-specific files
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+
+*.tar
+*.tar.gz
+*.zip
+*.gz
+
+# Ignore operating system files
+.DS_Store
+Thumbs.db

@@ -425,10 +425,11 @@ function useredit_shared_definition(&$mform, $editoroptions, $filemanageroptions
  */
 function useredit_get_required_name_fields() {
     global $CFG;
+    
 
     // Get the name display format.
-    $nameformat = $CFG->fullnamedisplay;
-
+    //$nameformat = $CFG->fullnamedisplay;
+    $nameformat = "firstname lastname";
     // Names that are required fields on user forms.
     $necessarynames = array('firstname', 'lastname');
     $languageformat = get_string('fullnamedisplay');
